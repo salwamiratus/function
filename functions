@@ -1,0 +1,31 @@
+def reverse_per_kata(kalimat):
+    kata = kalimat.split()
+    hasil = []
+    for k in kata:
+        hasil.append(k[::-1])
+    return ' '.join(hasil)
+
+def urutkan_kalimat(kalimat, urutkan):
+    kata = kalimat.split()
+    hasil = []
+    for huruf in  urutkan:
+        hasil.append(kata[huruf-1])
+    return ' '.join(hasil)
+
+def ganti_vokal(kalimat, posisi):
+    vokal_kecil = {'a': '4', 'i': '1', 'u': '|_|', 'e': '3', 'o': '0'}
+    vokal_besar = {'A': '4', 'I': '1', 'U': '|_|', 'E': '3', 'O': '0'}
+    hasil = ''
+    for huruf in kalimat:
+        if posisi == 1 and huruf in vokal_kecil:
+            hasil += vokal_kecil[huruf]
+        elif posisi == 2 and huruf in vokal_besar:
+            hasil += vokal_besar[huruf]
+        else:
+            hasil += huruf
+        return hasil
+    
+print(reverse_per_kata("AKU CINTA KAMU"))
+print(urutkan_kalimat("HARI INI SEDANG BELAJAR PYTHON",[5,1,4,3,2]))
+print(ganti_vokal("Aku Cints Kamu", 1))
+print(ganti_vokal("AKu Cints Kamu", 2))
